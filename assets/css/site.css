@@ -81,3 +81,7 @@ a.cleaner-card:hover, a.result-card:hover, a.item:hover { transform: translateY(
 /* ---------- postcode form error (P6 §4: on submit only, announced) ---------- */
 .postcode .error { flex-basis: 100%; color: var(--danger-fg); margin: 0; }
 .postcode .error:empty { display: none; }
+
+/* ---------- the header brass is not focusable while invisible (keyboard users tabbed onto nothing) ---------- */
+.site-header .btn-brass { visibility: hidden; transition: opacity var(--d-default), visibility 0s linear var(--d-default); }
+.site-header.is-scrolled .btn-brass { visibility: visible; transition: opacity var(--d-default), visibility 0s; }
