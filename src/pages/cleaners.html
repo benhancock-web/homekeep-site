@@ -1,0 +1,43 @@
+  <section class="tight">
+    <div class="container">
+      <h1 style="font-family:var(--font-display);font-size:32px;font-weight:600;color:var(--heading);margin:0 0 8px">Cleaners near <span id="pcOut">you</span></h1>
+      <p role="status" id="resultsStatus" style="color:var(--text-2)">Homekeep is opening in Hertfordshire and Essex first. Cleaners near you will appear here when the app launches.</p>
+      <div class="notice is-info" role="note"><svg class="ic ic-20"><use href="#i-help"/></svg><p>The cards below show what a listing looks like. Maria, Ewa and Andrei are examples, not real people. Real profiles replace them at launch, nearest to you first.</p></div>
+      <div class="results">
+        <div class="list-col">
+          <a class="result-card" href="{{base}}/cleaners/example-maria/">
+            <div class="top"><span class="avatar avatar-lg">M</span><div class="grow"><h2 style="font-size:22px;margin:0">Maria <span class="tag-example">Example</span></h2><p class="t-cap" style="margin:0">Self employed cleaner · Covers SG14, SG13</p></div><span style="text-align:right"><span class="fig" style="font-size:20px">£21.50</span><span class="t-cap" style="display:block">an hour</span></span></div>
+            <div class="facts"><span><span class="fig">4.9</span> from <span class="fig">31</span> reviews</span><span><span class="fig">8</span> years</span><span>Deep cleans, ovens</span></div>
+            <ul class="week is-quiet is-compact" role="img" aria-label="Available Monday, Tuesday, Thursday"><li class="avail">M</li><li class="avail">T</li><li class="off">W</li><li class="avail">T</li><li class="off">F</li><li class="off">S</li><li class="off">S</li></ul>
+            <p style="margin:0;color:var(--text-2);font-size:16px">Maria has cleaned for the same three families in her area for six years and is known for kitchens and ovens.</p>
+            <span class="badge"><svg class="ic"><use href="#i-check"/></svg>Verified</span>
+          </a>
+          <a class="result-card" href="{{base}}/cleaners/example-maria/">
+            <div class="top"><span class="avatar avatar-lg tint-2">E</span><div class="grow"><h2 style="font-size:22px;margin:0">Ewa <span class="tag-example">Example</span></h2><p class="t-cap" style="margin:0">Self employed cleaner · Covers SG14</p></div><span style="text-align:right"><span class="fig" style="font-size:20px">£20.00</span><span class="t-cap" style="display:block">an hour</span></span></div>
+            <div class="facts"><span><span class="fig">4.8</span> from <span class="fig">12</span> reviews</span><span><span class="fig">5</span> years</span><span>Housekeeping, laundry</span></div>
+            <ul class="week is-quiet is-compact" role="img" aria-label="Available Tuesday, Wednesday, Friday"><li class="off">M</li><li class="avail">T</li><li class="avail">W</li><li class="off">T</li><li class="avail">F</li><li class="off">S</li><li class="off">S</li></ul>
+            <p style="margin:0;color:var(--text-2);font-size:16px">Ewa worked in hotel housekeeping before moving to private homes and is quick, quiet and very thorough.</p>
+            <span class="badge"><svg class="ic"><use href="#i-check"/></svg>Verified</span>
+          </a>
+          <a class="result-card" href="{{base}}/cleaners/example-maria/">
+            <div class="top"><span class="avatar avatar-lg tint-3">A</span><div class="grow"><h2 style="font-size:22px;margin:0">Andrei <span class="tag-example">Example</span></h2><p class="t-cap" style="margin:0">Self employed cleaner · Covers SG12, SG14</p></div><span style="text-align:right"><span class="fig" style="font-size:20px">£19.50</span><span class="t-cap" style="display:block">an hour</span></span></div>
+            <div class="facts"><span><span class="fig">4.8</span> from <span class="fig">18</span> reviews</span><span><span class="fig">4</span> years</span><span>Large homes, lets</span></div>
+            <ul class="week is-quiet is-compact" role="img" aria-label="Available Wednesday, Friday, Saturday"><li class="off">M</li><li class="off">T</li><li class="avail">W</li><li class="off">T</li><li class="avail">F</li><li class="avail">S</li><li class="off">S</li></ul>
+            <p style="margin:0;color:var(--text-2);font-size:16px">Andrei covers larger homes and holiday lets and takes on end of tenancy work at short notice.</p>
+            <span class="badge"><svg class="ic"><use href="#i-check"/></svg>Verified</span>
+          </a>
+          <p class="t-cap">First name, area, rate, experience, availability and reviews are visible to anyone. Messaging, booking, surname and exact distance need a free account. Nothing is blurred.</p>
+          <p style="margin-top:8px"><a class="btn btn-outline" href="{{base}}/become-a-cleaner/">Are you a cleaner? Join Homekeep</a></p>
+        </div>
+        <div class="mappanel" aria-hidden="true"><svg viewBox="0 0 500 460" preserveAspectRatio="xMidYMid slice"><use href="#map-flat"/><circle cx="180" cy="180" r="9" fill="var(--brass-500)" stroke="var(--ink)" stroke-width="2"/><circle cx="300" cy="250" r="8" fill="var(--pine)"/><circle cx="230" cy="330" r="8" fill="var(--pine)"/></svg></div>
+      </div>
+    </div>
+  </section>
+  <script>
+  (function () {
+    // The postcode search is a plain GET to this page; show what was searched for.
+    var pc = new URLSearchParams(location.search).get('postcode');
+    if (pc) { pc = pc.trim().toUpperCase(); var out = pc.split(' ')[0].replace(/[0-9][A-Z]{2}$/, '') || pc; document.getElementById('pcOut').textContent = out;
+      document.getElementById('resultsStatus').textContent = 'Homekeep is opening in Hertfordshire and Essex first. Cleaners near ' + out + ' will appear here when the app launches.'; }
+  })();
+  </script>

@@ -1,0 +1,12 @@
+{
+  "_comment": "Site-wide settings. base is the path prefix the site is served under: '/homekeep-site' on the GitHub address, '' once a custom domain is pointed at it (the deploy workflow sets SITE_BASE). apply_url is where every 'Apply in ten minutes' goes; app_store_url / play_store_url are empty until the listings exist and then appear on the Become a cleaner page automatically. company_line is empty until the company is registered (e.g. 'Registered in England and Wales, company number 12345678. Registered office: …'). noindex keeps search engines off the site while it is on the GitHub address.",
+  "origin": "https://benhancock-web.github.io",
+  "base": "/homekeep-site",
+  "company_name": "Homekeep",
+  "company_line": "",
+  "contact_email": "ben.hancock@me.com",
+  "apply_url": "{{base}}/become-a-cleaner/#the-app",
+  "noindex": true,
+  "app_store_url": "",
+  "play_store_url": ""
+}

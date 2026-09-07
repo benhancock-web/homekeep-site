@@ -1,0 +1,83 @@
+/* site.css — web-only additions on top of design-system.css.
+   Every value comes from tokens.css; nothing here introduces a colour, size or radius.
+   Parts: the mobile menu sheet, the legal template, the example-profile notice,
+   the contact page, the placeholder notice. */
+
+/* ---------- mobile menu sheet (P6 §2: wordmark + "Menu" button opening a full height sheet) ---------- */
+.menu-sheet { display: none; position: fixed; inset: 0; z-index: 6; background: var(--ground); padding: var(--s-4); overflow: auto; }
+.menu-sheet.is-open { display: block; }
+.menu-sheet .top { display: flex; align-items: center; justify-content: space-between; min-height: var(--target); }
+.menu-sheet .close { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 600; color: var(--link); background: none; border: 0; min-height: var(--target); padding: 0 var(--s-2); cursor: pointer; }
+.menu-sheet nav { display: grid; margin-top: var(--s-4); }
+.menu-sheet nav a { display: flex; align-items: center; min-height: 56px; padding: 0 var(--s-2); border-top: 1px solid var(--hairline-solid); font-family: var(--font-display); font-weight: 500; font-size: 18px; color: var(--link); text-decoration: none; }
+.menu-sheet nav a:last-child { border-bottom: 1px solid var(--hairline-solid); }
+.menu-sheet .t-over { margin: var(--s-6) 0 var(--s-2); }
+body.menu-open { overflow: hidden; }
+
+/* ---------- header on desktop: plain links, no dropdowns until the phase 2 service pages exist ---------- */
+.site-nav a.is-current { text-decoration: underline; text-underline-offset: 6px; }
+
+/* ---------- focus (P6 §6: 3px pine outline with 2px ground offset) ---------- */
+.site a:focus-visible, .site button:focus-visible, .site input:focus-visible, .site summary:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+html { scroll-padding-bottom: 96px; scroll-padding-top: 80px; }
+
+/* ---------- prose (about, legal, contact) ---------- */
+.prose { max-width: 68ch; }
+.prose h1 { font-family: var(--font-display); font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem); font-weight: 600; color: var(--heading); margin: 0 0 var(--s-6); line-height: 1.1; text-wrap: balance; }
+.prose h2 { font-family: var(--font-display); font-size: 24px; font-weight: 600; color: var(--heading); margin: var(--s-8) 0 var(--s-3); scroll-margin-top: 80px; }
+.prose h3 { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--heading); margin: var(--s-6) 0 var(--s-2); }
+.prose p, .prose li { color: var(--text); }
+.prose a { color: var(--link); }
+.prose ul { padding-left: 1.2em; }
+.prose .meta { color: var(--text-2); font-size: 15px; margin: 0 0 var(--s-6); }
+
+/* ---------- legal template (P6 §3: 68ch column, sticky contents on desktop, no brass) ---------- */
+.legal { display: grid; grid-template-columns: 240px minmax(0, 68ch); gap: var(--s-12); align-items: start; }
+.legal .contents { position: sticky; top: 80px; }
+.legal .contents h2 { font-family: var(--font-display); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--text-3); margin: 0 0 var(--s-2); }
+.legal .contents a { display: block; min-height: 40px; line-height: 40px; color: var(--link); text-decoration: none; font-size: 15px; }
+.legal .contents a:hover { text-decoration: underline; }
+.legal-list { display: grid; gap: var(--s-2); list-style: none; padding: 0; margin: var(--s-6) 0 0; }
+.legal-list a { display: flex; align-items: center; justify-content: space-between; min-height: 56px; padding: 0 var(--s-4); background: var(--card); border-radius: var(--r-card); box-shadow: var(--shadow-raised); color: var(--link); text-decoration: none; font-family: var(--font-display); font-weight: 500; }
+@media (max-width: 900px) {
+  .legal { grid-template-columns: 1fr; gap: var(--s-6); }
+  .legal .contents { position: static; }
+}
+
+/* ---------- notices: placeholder documents, example profiles ---------- */
+.notice { display: flex; gap: var(--s-2); align-items: flex-start; padding: var(--s-3) var(--s-4); border-radius: var(--r-card); background: var(--warning-bg); color: var(--warning-fg); font-size: 15px; line-height: 21px; margin: 0 0 var(--s-6); }
+.notice .ic { flex: 0 0 auto; }
+.notice.is-info { background: var(--info-bg); color: var(--info-fg); }
+.notice p { margin: 0; }
+.notice a { color: inherit; }
+
+/* ---------- contact page ---------- */
+.contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--s-4); margin-top: var(--s-6); }
+.contact-cards .item h3 { margin-top: 0; }
+
+/* ---------- print (legal pages are printable) ---------- */
+@media print {
+  .site-header, .site-footer, .sticky-cta, .menu-sheet, .legal .contents, .skip { display: none !important; }
+  .legal { grid-template-columns: 1fr; }
+}
+
+/* ---------- sticky bar that follows the hero (hidden until the page's brass scrolls out) ---------- */
+.sticky-cta.is-auto:not(.is-scrolled) { display: none; }
+
+/* ---------- header container fills the bar (the bar is a flex parent) ---------- */
+.site-header .container { width: 100%; box-sizing: border-box; }
+
+/* ---------- cards that are links: the card is the link, no underline, text keeps its colour ---------- */
+a.cleaner-card, a.result-card, a.item { text-decoration: none; color: inherit; display: block; }
+a.cleaner-card { display: grid; }
+a.cleaner-card:hover, a.result-card:hover, a.item:hover { transform: translateY(-2px); }
+.cards a.item h3 { margin-top: 0; }
+
+/* ---------- "Example" label on fictional cards (same look as the Coming label) ---------- */
+.tag-example { display: inline-flex; align-items: center; min-height: 24px; padding: 0 8px; border-radius: var(--r-pill); background: var(--sunken); color: var(--text-2); font-family: var(--font-display); font-weight: 600; font-size: 12px; vertical-align: middle; }
+.cleaner-card .tag-example { justify-self: start; }
+.store-links { display: flex; gap: var(--s-3); flex-wrap: wrap; margin-top: var(--s-4); }
+
+/* ---------- postcode form error (P6 §4: on submit only, announced) ---------- */
+.postcode .error { flex-basis: 100%; color: var(--danger-fg); margin: 0; }
+.postcode .error:empty { display: none; }

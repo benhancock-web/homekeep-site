@@ -1,0 +1,71 @@
+/* tokens.css — generated from tokens.json v0.1 (6 Sept 2026). Do not hand edit values; edit tokens.json. */
+:root {
+  /* brand constants */
+  --pine: #1C4A3C; --brass: #F0A32E; --eucalyptus: #CFE5DA; --linen: #F3F5F1; --ink: #10241E;
+  --pine-950: #10241E; --pine-900: #163B30; --pine-800: #1A4336; --pine-700: #1C4A3C; --pine-600: #27604E; --pine-500: #35785F;
+  --pine-400: #4F9075; --pine-300: #7FB39B; --pine-200: #A9CDBB; --pine-100: #CFE5DA; --pine-50: #E3F0E9; --pine-25: #EEF5F1;
+  --brass-50: #FDF3E1; --brass-100: #FBE7C4; --brass-500: #F0A32E; --brass-600: #D98B15; --brass-800: #8A5510;
+  --success-fg: #27604E; --success-bg: #CFE5DA; --warning-fg: #8A5510; --warning-bg: #FBE7C4;
+  --danger-fg: #9E3B2F; --danger-bg: #F8E6E2; --info-fg: #3F5F6E; --info-bg: #E4ECEF;
+
+  /* light surfaces (default) */
+  --ground: #F3F5F1; --card: #FFFFFF; --raised: #FFFFFF; --sunken: #E9EDE8; --selected: #CFE5DA; --band: #1C4A3C;
+  --text: #10241E; --heading: #1C4A3C; --text-2: #4B6158; --text-3: #5C7067; --on-pine: #F3F5F1; --on-brass: #10241E; --link: #1C4A3C;
+  --hairline: rgba(207,229,218,0.4); --hairline-solid: #D9E8DF; --input-border: #4F9075; --disabled-text: #74867E; --disabled-fill: #EEF5F1;
+  --focus-ring: #1C4A3C; --focus-gap: #F3F5F1; --shadow-raised: 0 2px 12px rgba(16,36,30,0.08);
+  --icon-interactive: #1C4A3C; --icon-descriptive: #4B6158;
+  --fill-mine: #1C4A3C; --on-mine: #F3F5F1;
+  --map-land: #EEF3EF; --map-water: #D5E6E0; --map-park: #DDEBE3; --map-road: #FFFFFF; --map-label: #4B6158; --map-route: #1C4A3C;
+  --switch-off: #E9EDE8; --switch-off-knob: #FFFFFF;
+
+  /* type */
+  --font-display: "Jost", "TeX Gyre Adventor", "Futura", "Avenir Next", system-ui, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Roboto", "Segoe UI", system-ui, sans-serif;
+  --font-web-body: "Carlito", "Calibri", "Lato", -apple-system, "Roboto", system-ui, sans-serif;
+  --font-mono: "DM Mono", "SF Mono", "Roboto Mono", ui-monospace, monospace;
+
+  /* scale */
+  --t-hero: 56px; --t-hero-lh: 60px; --t-large: 32px; --t-large-lh: 38px; --t-title: 24px; --t-title-lh: 30px;
+  --t-card: 20px; --t-card-lh: 26px; --t-button: 17px; --t-button-lh: 22px; --t-overline: 12px; --t-overline-lh: 16px;
+  --t-body: 16px; --t-body-lh: 24px; --t-caption: 13px; --t-caption-lh: 18px; --t-figure-big: 34px; --t-figure-big-lh: 40px;
+
+  /* space, radius, targets */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-6: 24px; --s-8: 32px; --s-12: 48px; --s-16: 64px; --s-24: 96px; --s-32: 128px;
+  --r-pill: 999px; --r-card: 16px; --r-chip: 8px; --r-input: 12px; --r-sheet: 28px;
+  --target: 48px; --target-brass: 56px;
+  --week-chip: 44px; --week-slot: 52px; --week-gap: 8px; --week-compact: 24px;
+
+  /* motion: springs expressed as CSS approximations */
+  --ease-spring: cubic-bezier(.2,.9,.3,1.05); --ease-fast: cubic-bezier(.3,1,.4,1); --ease-effects: cubic-bezier(.4,0,.2,1);
+  --d-fast: 120ms; --d-default: 260ms; --d-fade: 150ms;
+  color-scheme: light;
+}
+
+/* dark — system setting, unless the viewer chose light */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #10241E; --card: #17302A; --raised: #1E3A33; --sunken: #0B1A15; --selected: #1F4A3D; --band: #1C4A3C;
+    --text: #F3F5F1; --heading: #CFE5DA; --text-2: #A9CDBB; --text-3: #7FA593; --on-pine: #F3F5F1; --on-brass: #10241E; --link: #CFE5DA;
+    --hairline: #2C4A41; --hairline-solid: #2C4A41; --input-border: #7FB39B; --disabled-text: #74867E; --disabled-fill: #17302A;
+    --focus-ring: #CFE5DA; --focus-gap: #10241E; --shadow-raised: 0 2px 12px rgba(0,0,0,0.35);
+    --icon-interactive: #CFE5DA; --icon-descriptive: #A9CDBB;
+    --fill-mine: #7FB39B; --on-mine: #10241E;
+    --map-land: #14312A; --map-water: #0F2A24; --map-park: #183F33; --map-road: #1E3A33; --map-label: #A9CDBB; --map-route: #CFE5DA;
+    --switch-off: #0B1A15; --switch-off-knob: #7FA593;
+    --success-bg: #1F4A3D; --success-fg: #CFE5DA; --warning-bg: #3A2A10; --warning-fg: #FBE7C4; --danger-bg: #3B1F1B; --danger-fg: #F2D3CC; --info-bg: #1E323A; --info-fg: #D3E0E5;
+    color-scheme: dark;
+  }
+}
+/* dark — explicit choice or the prototype's toggle */
+:root[data-theme="dark"] {
+  --ground: #10241E; --card: #17302A; --raised: #1E3A33; --sunken: #0B1A15; --selected: #1F4A3D; --band: #1C4A3C;
+  --text: #F3F5F1; --heading: #CFE5DA; --text-2: #A9CDBB; --text-3: #7FA593; --on-pine: #F3F5F1; --on-brass: #10241E; --link: #CFE5DA;
+  --hairline: #2C4A41; --hairline-solid: #2C4A41; --input-border: #7FB39B; --disabled-text: #74867E; --disabled-fill: #17302A;
+  --focus-ring: #CFE5DA; --focus-gap: #10241E; --shadow-raised: 0 2px 12px rgba(0,0,0,0.35);
+  --icon-interactive: #CFE5DA; --icon-descriptive: #A9CDBB;
+    --fill-mine: #7FB39B; --on-mine: #10241E;
+  --map-land: #14312A; --map-water: #0F2A24; --map-park: #183F33; --map-road: #1E3A33; --map-label: #A9CDBB; --map-route: #CFE5DA;
+  --switch-off: #0B1A15; --switch-off-knob: #7FA593;
+  --success-bg: #1F4A3D; --success-fg: #CFE5DA; --warning-bg: #3A2A10; --warning-fg: #FBE7C4; --danger-bg: #3B1F1B; --danger-fg: #F2D3CC; --info-bg: #1E323A; --info-fg: #D3E0E5;
+  color-scheme: dark;
+}

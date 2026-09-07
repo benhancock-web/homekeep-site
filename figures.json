@@ -1,0 +1,18 @@
+{
+  "_comment": "Launch honesty (P6 §7, HANDOFF 03 §3). Every figure below is hidden on the live site until Mark confirms it is true and sets confirmed to true. While false, the build removes every element marked class=\"unconfirmed\" and keeps the class=\"launch-only\" alternatives; the sentence is omitted, never reworded. Nothing here ever reaches the app's rate field.",
+  "confirmed": false,
+  "owner": "Mark Emerson (commercial). Rate ranges and the £99 fee also need the broker/legal position.",
+  "hidden_while_unconfirmed": [
+    "Rated 4.6 on Trustpilot",
+    "Customer testimonials",
+    "Only one in eight applicants",
+    "By the numbers block",
+    "Around three quarters of our customers are out",
+    "Most customers get back two to three hours a week",
+    "Rate range £18.95 to £24.00 and the four experience tiers",
+    "Typical rates per service type",
+    "The £99 registration fee figure",
+    "Most cleaners here build a book of regular households",
+    "The example cleaner cards and reviews (Maria, Ewa, Joanne, Andrei are fictional)"
+  ]
+}

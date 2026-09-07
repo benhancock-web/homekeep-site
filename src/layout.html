@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+<meta name="theme-color" content="#F3F5F1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10241E" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:site_name" content="Homekeep">
+{{robots}}
+<link rel="icon" href="{{base}}/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{base}}/assets/icon-180.png">
+<link rel="preload" href="{{base}}/assets/fonts/jost-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{base}}/assets/fonts/carlito-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{base}}/assets/css/fonts.css">
+<link rel="stylesheet" href="{{base}}/assets/css/tokens.css">
+<link rel="stylesheet" href="{{base}}/assets/css/design-system.css">
+<link rel="stylesheet" href="{{base}}/assets/css/site.css">
+{{structured}}
+</head>
+<body>
+{{icons}}
+<div class="site">
+  <a class="skip" href="#main">Skip to content</a>
+{{header}}
+  <main id="main" class="site-main">
+{{content}}
+  </main>
+{{sticky}}
+{{footer}}
+</div>
+{{menu}}
+<script>
+(function () {
+  // Header brass appears once the page's own brass action has scrolled out (P6 §2).
+  var header = document.getElementById('siteHeader');
+  var hero = document.querySelector('main .btn-brass');
+  function onScroll() {
+    if (!hero) { header.classList.toggle('is-scrolled', window.scrollY > 4); return; }
+    var r = hero.getBoundingClientRect();
+    header.classList.toggle('is-scrolled', window.scrollY > 4 && r.bottom < 64);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu sheet: icon + label button, full height sheet, focus returned on close.
+  var btn = document.getElementById('menuBtn'), sheet = document.getElementById('menuSheet'), close = document.getElementById('menuClose');
+  function openMenu() { sheet.classList.add('is-open'); document.body.classList.add('menu-open'); btn.setAttribute('aria-expanded', 'true'); close.focus(); }
+  function closeMenu() { sheet.classList.remove('is-open'); document.body.classList.remove('menu-open'); btn.setAttribute('aria-expanded', 'false'); btn.focus(); }
+  if (btn && sheet) {
+    btn.addEventListener('click', openMenu);
+    close.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sheet.classList.contains('is-open')) closeMenu(); });
+  }
+
+  // Sticky mobile bar hides when the footer is in view (P6 §4).
+  var bar = document.querySelector('.sticky-cta'), foot = document.querySelector('.site-footer');
+  if (bar && foot && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { bar.style.visibility = es[0].isIntersecting ? 'hidden' : ''; }, { threshold: 0 }).observe(foot);
+  }
+
+  // Postcode search: remember the last postcode; submit is a plain GET so it works without this.
+  // Validation on submit only (P6 §4); "Use my location" fills the field from postcodes.io.
+  var PC = /^[A-Z]{1,2}[0-9][A-Z0-9]?(\s?[0-9][A-Z]{2})?$/i;
+  document.querySelectorAll('form.postcode').forEach(function (f) {
+    var input = f.querySelector('input'), err = f.querySelector('.error'), loc = f.querySelector('.btn-quiet');
+    try { var last = localStorage.getItem('hk-postcode'); if (last && input && !input.value) input.value = last; } catch (e) {}
+    function say(msg) { if (!err) { err = document.createElement('p'); err.className = 'error t-cap'; err.id = input.id + '-err'; err.setAttribute('role', 'alert'); f.appendChild(err); input.setAttribute('aria-describedby', err.id); } err.textContent = msg; }
+    f.addEventListener('submit', function (e) {
+      var v = input.value.trim();
+      if (!PC.test(v)) { e.preventDefault(); say('Enter a UK postcode, like SG14 1AB'); input.focus(); return; }
+      try { localStorage.setItem('hk-postcode', v); } catch (x) {}
+    });
+    if (loc) loc.addEventListener('click', function () {
+      if (!navigator.geolocation) { say('Your browser cannot share your location. Type your postcode instead.'); return; }
+      loc.disabled = true;
+      navigator.geolocation.getCurrentPosition(function (pos) {
+        fetch('https://api.postcodes.io/postcodes?lon=' + pos.coords.longitude + '&lat=' + pos.coords.latitude + '&limit=1')
+          .then(function (r) { return r.json(); })
+          .then(function (j) { loc.disabled = false; if (j.result && j.result[0]) { input.value = j.result[0].postcode; if (err) err.textContent = ''; } else say('No postcode found for your location. Type it instead.'); })
+          .catch(function () { loc.disabled = false; say('Could not look up your location. Type your postcode instead.'); });
+      }, function () { loc.disabled = false; say('Location was not shared. Type your postcode instead.'); });
+    });
+  });
+})();
+</script>
+</body>
+</html>
