@@ -2,7 +2,7 @@
 // keyboard focus ring visible, four widths × two themes rendered without horizontal overflow.
 const { chromium } = require(process.env.PLAYWRIGHT_PATH || '/home/claude/.npm-global/lib/node_modules/playwright');
 const BASE = process.argv[2] || 'https://benhancock-web.github.io/homekeep-site';
-const pages = ['', 'find-a-cleaner/', 'cleaners/', 'cleaners/example-maria/', 'become-a-cleaner/', 'cleaner-app/', 'pricing/', 'about/', 'contact/', 'legal/', 'legal/terms-for-households/', 'legal/terms-for-cleaners/', 'legal/privacy/', 'legal/cookies/', 'legal/insurance-and-complaints/', 'legal/modern-slavery/', 'legal/delete-account/'];
+const pages = ['', 'households/', 'cleaners/', 'companies/', 'web/', 'about/', 'contact/', 'legal/', 'legal/terms-for-households/', 'legal/terms-for-cleaners/', 'legal/privacy/', 'legal/cookies/', 'legal/insurance-and-complaints/', 'legal/modern-slavery/', 'legal/delete-account/', 'find-a-cleaner/', 'become-a-cleaner/'];
 (async () => {
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
   const issues = [];
@@ -38,7 +38,7 @@ const pages = ['', 'find-a-cleaner/', 'cleaners/', 'cleaners/example-maria/', 'b
     await c.close();
   }
   // 3. LCP on throttled 4G (1.6 Mbps down, 150 ms RTT), mobile CPU 4x slower, cold cache
-  for (const p of ['', 'become-a-cleaner/']) {
+  for (const p of ['', 'cleaners/']) {
     const c = await browser.newContext({ viewport: { width: 390, height: 844 } });
     const page = await c.newPage();
     const cdp = await c.newCDPSession(page);

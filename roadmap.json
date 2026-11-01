@@ -1,0 +1,63 @@
+{
+  "_comment": "The roadmaps shown on the household and cleaner pages. Checked against the app repo on 1 Nov 2026 (main 3fdb49f) and the Stage 5/6 handoff notes. Nothing goes in 'now' unless it is built and working in the test version. 'testing' = built, switched on after checks. 'later' = planned, not built, no dates. Move an item only when the app changes.",
+  "status_line": "Otterly is in private testing and is not in the App Store or Google Play yet. “In the app now” means built and working in the test version.",
+  "households": {
+    "now": [
+      ["Browse verified cleaners near you", "Each cleaner’s own hourly rate is shown up front."],
+      ["Cleaner profiles", "Photo, introduction, business name, the days they work and their reviews."],
+      ["Message a cleaner before you book", ""],
+      ["Book a trial clean", "At the cleaner’s rate, before anything regular is agreed."],
+      ["Your next visit at a glance", ""],
+      ["Your home details in one place", "The key-safe code is encrypted and shown only to your cleaner around the visit."],
+      ["Photos after each visit", ""],
+      ["Know who is covering", "See who your cleaner has asked, and say no thanks if you’d rather wait."],
+      ["Rate each visit", "Reviews show after 14 days."],
+      ["Delete your account yourself", ""],
+      ["Light and dark mode", ""]
+    ],
+    "testing": [
+      ["Card payments in the app", "Including Apple and Google phone wallets. Switched on after final legal and banking checks."],
+      ["Message translation", "For conversations with cleaners whose first language is not English."],
+      ["Give notice in the app", "Ending an arrangement, with a set notice period."],
+      ["Use Otterly in a web browser", "For anyone without a smartphone."]
+    ],
+    "later": [
+      ["Notifications", "For visits, cover and messages."],
+      ["A monthly statement", "Every visit and every charge in one document."],
+      ["Cover cleaners see your home notes", "So you don’t have to pass them on yourself."],
+      ["A second adult on the account", ""],
+      ["Report a problem to Otterly", "From any conversation."]
+    ]
+  },
+  "cleaners": {
+    "now": [
+      ["Apply to join in the app", ""],
+      ["Set your own rate", "Change it whenever you like."],
+      ["Open to new jobs", "One switch, on or off."],
+      ["Your profile", "Photo, introduction, business name and the areas you cover."],
+      ["Today", "A map, your next visit and directions in one tap."],
+      ["Your diary", "The month at a glance. Block out days you’re away."],
+      ["Check in and out at the door", "Works without signal and catches up later."],
+      ["Before and after photos", "Location details removed automatically."],
+      ["Earnings in full", "What the household is charged, the fee, and what reaches you."],
+      ["An invoice for every visit", "Made for you, ready to share as a PDF."],
+      ["Ask a trusted cleaner to cover", "The household is told who is coming. No approval from Otterly needed."],
+      ["Take cover offered to you", ""],
+      ["Your work record", "Visits and hours, kept for you."],
+      ["Hide earnings on screen", "For when someone is looking over your shoulder."]
+    ],
+    "testing": [
+      ["Earnings straight to your bank", "Through Stripe, once card payments switch on."],
+      ["Message translation", "Polish, Romanian and more, to and from English."]
+    ],
+    "later": [
+      ["Job alerts on your phone", ""],
+      ["Set your regular days in the app", "Today these are changed by email."],
+      ["Cover visits in your own diary", "With the address, the household’s notes and the earnings going to you."],
+      ["Your documents in one place", "With reminders before anything runs out."],
+      ["Mileage and a tax-year summary", "Ready for your Self Assessment return."],
+      ["Rate the households you work for", ""],
+      ["Join pages in your language", "Polski, Română, Português, Español."]
+    ]
+  }
+}

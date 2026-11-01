@@ -1,12 +1,16 @@
-  <header class="site-header" id="siteHeader">
-    <div class="container">
-      <a href="{{base}}/" aria-label="Homekeep home" style="display:flex;align-items:center"><svg viewBox="0 0 5560 960" style="height:26px;width:auto" aria-hidden="true"><use href="#wordmark"/></svg></a>
-      <nav class="site-nav" aria-label="Site">
-        <a href="{{base}}/find-a-cleaner/"{{cur:find}}>Find a cleaner</a>
-        <a href="{{base}}/become-a-cleaner/"{{cur:become}}>Become a cleaner</a>
-        <a href="{{base}}/about/"{{cur:about}}>About Homekeep</a>
-        {{header_cta}}
-      </nav>
-      <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="menuSheet"><svg class="ic"><use href="#i-menu"/></svg>Menu</button>
-    </div>
-  </header>
+<header class="{{header_class}}">
+  <div class="container header-row">
+    <a class="brand" href="{{base}}/" aria-label="Otterly, home">
+      <picture class="brand-light"><source srcset="{{base}}/assets/brand/otterly-lockup-horizontal-reversed.svg" media="(prefers-color-scheme: dark)"><img src="{{base}}/assets/brand/otterly-lockup-horizontal.svg" alt="" width="150" height="50"></picture>
+      <img class="brand-rev" src="{{base}}/assets/brand/otterly-lockup-horizontal-reversed.svg" alt="" width="150" height="50">
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="{{base}}/households/"{{cur:households}}>Households</a>
+      <a href="{{base}}/cleaners/"{{cur:cleaners}}>Cleaners</a>
+      <a href="{{base}}/companies/"{{cur:companies}}>Companies</a>
+      <a href="{{base}}/about/"{{cur:about}}>About</a>
+      <a class="nav-web" href="{{base}}/web/"{{cur:web}}><svg class="ic ic-20" aria-hidden="true"><use href="#i-globe"/></svg>Use on the web</a>
+    </nav>
+    <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="menuSheet"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg>Menu</button>
+  </div>
+</header>

@@ -1,4 +1,4 @@
 _site/
-shots/
+/shots/
 node_modules/
 .DS_Store

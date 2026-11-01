@@ -1,43 +1,177 @@
-  <section class="tight">
-    <div class="container">
-      <h1 style="font-family:var(--font-display);font-size:32px;font-weight:600;color:var(--heading);margin:0 0 8px">Cleaners near <span id="pcOut">you</span></h1>
-      <p role="status" id="resultsStatus" style="color:var(--text-2)">Homekeep is opening in Hertfordshire and Essex first. Cleaners near you will appear here when the app launches.</p>
-      <div class="notice is-info" role="note"><svg class="ic ic-20"><use href="#i-help"/></svg><p>The cards below show what a listing looks like. Maria, Ewa and Andrei are examples, not real people. Real profiles replace them at launch, nearest to you first.</p></div>
-      <div class="results">
-        <div class="list-col">
-          <a class="result-card" href="{{base}}/cleaners/example-maria/">
-            <div class="top"><span class="avatar avatar-lg">M</span><div class="grow"><h2 style="font-size:22px;margin:0">Maria <span class="tag-example">Example</span></h2><p class="t-cap" style="margin:0">Self employed cleaner · Covers SG14, SG13</p></div><span style="text-align:right"><span class="fig" style="font-size:20px">£21.50</span><span class="t-cap" style="display:block">an hour</span></span></div>
-            <div class="facts"><span><span class="fig">4.9</span> from <span class="fig">31</span> reviews</span><span><span class="fig">8</span> years</span><span>Deep cleans, ovens</span></div>
-            <ul class="week is-quiet is-compact" role="img" aria-label="Available Monday, Tuesday, Thursday"><li class="avail">M</li><li class="avail">T</li><li class="off">W</li><li class="avail">T</li><li class="off">F</li><li class="off">S</li><li class="off">S</li></ul>
-            <p style="margin:0;color:var(--text-2);font-size:16px">Maria has cleaned for the same three families in her area for six years and is known for kitchens and ovens.</p>
-            <span class="badge"><svg class="ic"><use href="#i-check"/></svg>Verified</span>
-          </a>
-          <a class="result-card" href="{{base}}/cleaners/example-maria/">
-            <div class="top"><span class="avatar avatar-lg tint-2">E</span><div class="grow"><h2 style="font-size:22px;margin:0">Ewa <span class="tag-example">Example</span></h2><p class="t-cap" style="margin:0">Self employed cleaner · Covers SG14</p></div><span style="text-align:right"><span class="fig" style="font-size:20px">£20.00</span><span class="t-cap" style="display:block">an hour</span></span></div>
-            <div class="facts"><span><span class="fig">4.8</span> from <span class="fig">12</span> reviews</span><span><span class="fig">5</span> years</span><span>Housekeeping, laundry</span></div>
-            <ul class="week is-quiet is-compact" role="img" aria-label="Available Tuesday, Wednesday, Friday"><li class="off">M</li><li class="avail">T</li><li class="avail">W</li><li class="off">T</li><li class="avail">F</li><li class="off">S</li><li class="off">S</li></ul>
-            <p style="margin:0;color:var(--text-2);font-size:16px">Ewa worked in hotel housekeeping before moving to private homes and is quick, quiet and very thorough.</p>
-            <span class="badge"><svg class="ic"><use href="#i-check"/></svg>Verified</span>
-          </a>
-          <a class="result-card" href="{{base}}/cleaners/example-maria/">
-            <div class="top"><span class="avatar avatar-lg tint-3">A</span><div class="grow"><h2 style="font-size:22px;margin:0">Andrei <span class="tag-example">Example</span></h2><p class="t-cap" style="margin:0">Self employed cleaner · Covers SG12, SG14</p></div><span style="text-align:right"><span class="fig" style="font-size:20px">£19.50</span><span class="t-cap" style="display:block">an hour</span></span></div>
-            <div class="facts"><span><span class="fig">4.8</span> from <span class="fig">18</span> reviews</span><span><span class="fig">4</span> years</span><span>Large homes, lets</span></div>
-            <ul class="week is-quiet is-compact" role="img" aria-label="Available Wednesday, Friday, Saturday"><li class="off">M</li><li class="off">T</li><li class="avail">W</li><li class="off">T</li><li class="avail">F</li><li class="avail">S</li><li class="off">S</li></ul>
-            <p style="margin:0;color:var(--text-2);font-size:16px">Andrei covers larger homes and holiday lets and takes on end of tenancy work at short notice.</p>
-            <span class="badge"><svg class="ic"><use href="#i-check"/></svg>Verified</span>
-          </a>
-          <p class="t-cap">First name, area, rate, experience, availability and reviews are visible to anyone. Messaging, booking, surname and exact distance need a free account. Nothing is blurred.</p>
-          <p style="margin-top:8px"><a class="btn btn-outline" href="{{base}}/become-a-cleaner/">Are you a cleaner? Join Homekeep</a></p>
-        </div>
-        <div class="mappanel" aria-hidden="true"><svg viewBox="0 0 500 460" preserveAspectRatio="xMidYMid slice"><use href="#map-flat"/><circle cx="180" cy="180" r="9" fill="var(--brass-500)" stroke="var(--ink)" stroke-width="2"/><circle cx="300" cy="250" r="8" fill="var(--pine)"/><circle cx="230" cy="330" r="8" fill="var(--pine)"/></svg></div>
+<section class="band page-hero">
+  {{ripples}}
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="over">For cleaners</p>
+      <h1>Run your cleaning round from one calm app.</h1>
+      <p class="lede">Set your own rate and your own days. Find regular households close to home. Let Otterly keep your diary, invoices and earnings, so the paperwork is done before you get home.</p>
+      <p class="store-note">{{store_note}}</p>
+    </div>
+    <div class="hero-phones">
+      {{phone-light:earnings|Earnings: September so far, after the service fee, with hours worked and visits this month.}}
+      {{phone-dark:today|Today in dark mode: a map, the next visit at 14 Elm Road, and Directions.}}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="sec-head">
+      <p class="over">Your day in the app</p>
+      <h2>Everything a working day needs, in your pocket.</h2>
+      <p class="lede">Made to be used with one hand, between visits, in bright sunlight or before dawn.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-copy">
+        <p class="step">Morning</p>
+        <h2>Today, on one screen.</h2>
+        <p class="lede">Your next visit, the map and directions in one tap. Open the job card for how to get in, what to avoid and the household's notes. Check in and out at the door, even without signal.</p>
+      </div>
+      <div class="feature-media two">
+        {{phone:today|Today: the map, the next visit and Directions.}}
+        {{phone:c_job-card|The job card: getting in, things to avoid, and buttons to message or call Priya.}}
       </div>
     </div>
-  </section>
-  <script>
-  (function () {
-    // The postcode search is a plain GET to this page; show what was searched for.
-    var pc = new URLSearchParams(location.search).get('postcode');
-    if (pc) { pc = pc.trim().toUpperCase(); var out = pc.split(' ')[0].replace(/[0-9][A-Z]{2}$/, '') || pc; document.getElementById('pcOut').textContent = out;
-      document.getElementById('resultsStatus').textContent = 'Homekeep is opening in Hertfordshire and Essex first. Cleaners near ' + out + ' will appear here when the app launches.'; }
-  })();
-  </script>
+
+    <div class="feature flip">
+      <div class="feature-copy">
+        <p class="step">Every week</p>
+        <h2>A diary that keeps itself.</h2>
+        <p class="lede">Every booked visit, the month at a glance. Block out the days you're away, and switch "Open to new jobs" on or off whenever you like.</p>
+      </div>
+      <div class="feature-media">
+        {{phone:diary|The diary: September with booked days, and a button to block out time.}}
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-copy">
+        <p class="step">Every visit</p>
+        <h2>Earnings and invoices, done for you.</h2>
+        <p class="lede">Each visit shows what the household is charged, Otterly's fee and what reaches you, in full. An invoice is made for every visit, ready to share as a PDF. Your month adds itself up.</p>
+      </div>
+      <div class="feature-media two">
+        {{phone:earnings|Earnings for the month, with a bar chart, hours worked and visits by household.}}
+        {{phone:c_invoice|An invoice for one visit: times, rate, the service fee and your earnings.}}
+      </div>
+    </div>
+
+    <div class="feature flip">
+      <div class="feature-copy">
+        <p class="step">When you can't make it</p>
+        <h2>Arrange your own cover.</h2>
+        <p class="lede">Offer a visit to a cleaner you know, or to any verified cleaner on Otterly. The household is told who is coming. You don't need anyone's approval. And when another cleaner needs cover, you can take it.</p>
+      </div>
+      <div class="feature-media two is-moss">
+        {{ripples}}
+        {{phone:c_pass-on|Pass this visit on: choose a cleaner you know or any verified cleaner, and add a note.}}
+        {{phone:c_offer|A job is available: two hours every Tuesday, with the visit total, the service fee and your earnings.}}
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-copy">
+        <p class="step">Your profile</p>
+        <h2>A profile that sells your business.</h2>
+        <p class="lede">Your photo, your introduction, your business name and the areas you cover. Set your own hourly rate when you apply, and change it whenever you like.</p>
+      </div>
+      <div class="feature-media two">
+        {{phone:profile|Your profile: Sam, self-employed cleaner in Hertford, verified by Otterly.}}
+        {{phone:c_apply|Joining Otterly, step 1: what do you charge? You set your own rate.}}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="sec-head">
+      <p class="over">Your business, your rules</p>
+      <h2>You're self-employed. You make the decisions.</h2>
+    </div>
+    <div class="rules">
+      <div><svg class="ic" aria-hidden="true"><use href="#i-pound"/></svg><h3>Your rate</h3><p>You set it, and you change it whenever you like. There's no cap and no floor.</p></div>
+      <div><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg><h3>Your days</h3><p>Work the days that suit you, and block out the days you're away.</p></div>
+      <div><svg class="ic" aria-hidden="true"><use href="#i-hand"/></svg><h3>Say no freely</h3><p>Turn down any job. It makes no difference to you, and there's no ranking.</p></div>
+      <div><svg class="ic" aria-hidden="true"><use href="#i-swap"/></svg><h3>Your own cover</h3><p>Ask a cleaner you trust to cover a visit, without asking Otterly first.</p></div>
+      <div><svg class="ic" aria-hidden="true"><use href="#i-people"/></svg><h3>Work with anyone</h3><p>Keep your own clients outside Otterly. There's no exclusivity.</p></div>
+      <div><svg class="ic" aria-hidden="true"><use href="#i-house"/></svg><h3>Your way of working</h3><p>How you clean, and what you use, is between you and the household.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="join">
+  <div class="container">
+    <div class="sec-head">
+      <p class="over">Joining Otterly</p>
+      <h2>How you join.</h2>
+      <p class="lede">Once Otterly opens, you apply in the app. Until then, register your interest and we'll be in touch.</p>
+    </div>
+    <div class="cards four">
+      <div class="card"><svg class="ic ic-lead" aria-hidden="true"><use href="#i-edit"/></svg><h3>Apply in the app</h3><p>Tell us what you charge and when you work.</p></div>
+      <div class="card"><svg class="ic ic-lead" aria-hidden="true"><use href="#i-shield"/></svg><h3>Your checks</h3><p>Photo ID, right to work, a background check and insurance are looked at when you join.</p></div>
+      <div class="card"><svg class="ic ic-lead" aria-hidden="true"><use href="#i-person"/></svg><h3>Your profile goes live</h3><p>With "Verified by Otterly", for households near you to find.</p></div>
+      <div class="card"><svg class="ic ic-lead" aria-hidden="true"><use href="#i-bubble"/></svg><h3>Households get in touch</h3><p>Talk first, do a trial clean, then agree the arrangement between you.</p></div>
+    </div>
+    <div class="mt-l stack">
+      <p class="over">Your language</p>
+      <p class="lede">The app is written in plain, simple English. Join pages in these languages are coming later.</p>
+      <div class="langs" aria-label="Languages coming later"><span lang="pl">Polski</span><span lang="ro">Română</span><span lang="pt">Português</span><span lang="es">Español</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="roadmap">
+  <div class="container">
+    <div class="sec-head">
+      <p class="over">Cleaner roadmap</p>
+      <h2>What you can do in Otterly.</h2>
+    </div>
+    <p class="road-status"><svg class="ic" aria-hidden="true"><use href="#i-help"/></svg><span>{{roadmap-status}}</span></p>
+    {{roadmap:cleaners}}
+  </div>
+</section>
+
+<section class="section" id="faqs">
+  <div class="container">
+    <div class="sec-head"><p class="over">Questions</p><h2>Good to know.</h2></div>
+    <div class="faq">
+      <details><summary>Would I be employed by Otterly?<svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></summary>
+        <div class="a"><p>No. You stay self-employed and run your own business. Otterly is a marketplace that introduces you to households and gives you an app to run your round.</p></div></details>
+      <details><summary>Who sets my rate?<svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></summary>
+        <div class="a"><p>You do, and you can change it whenever you like. Households see your rate on your profile before they message you.</p></div></details>
+      <details><summary>Can I turn jobs down?<svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></summary>
+        <div class="a"><p>Yes, any job, for any reason. Turning a job down makes no difference to you.</p></div></details>
+      <details><summary>Can I keep my own clients?<svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></summary>
+        <div class="a"><p>Yes. There's no exclusivity. Work with households on Otterly and anyone else you like.</p></div></details>
+      <details><summary>What does Otterly cost me?<svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></summary>
+        <div class="a"><p>Otterly takes a fee from each visit. It's shown in full on every job offer and every invoice, so you always see what the household is charged, the fee and what reaches you before you accept.</p></div></details>
+      <details><summary>How do my earnings reach me?<svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></summary>
+        <div class="a"><p>Straight to your bank account through Stripe, once card payments are switched on. That part is built and in testing now.</p></div></details>
+      <details><summary>What if I can't make a visit?<svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></summary>
+        <div class="a"><p>Offer it to a cleaner you know, or to any verified cleaner on Otterly. The household is told who is coming and can say no thanks. You don't need approval from Otterly.</p></div></details>
+      <details><summary>English isn't my first language. Is that a problem?<svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></summary>
+        <div class="a"><p>No. The app uses short, plain English. Message translation between you and households is built and in testing, and join pages in Polish, Romanian, Portuguese and Spanish are planned.</p></div></details>
+      <details><summary>When can I start?<svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></summary>
+        <div class="a"><p>Otterly is in private testing in Hertfordshire and Essex. <a href="{{mail:Cleaner interest in Otterly}}">Register your interest</a> and we'll be in touch as it opens.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="band cta">
+      {{ripples}}
+      <div class="stack">
+        <p class="over">Hertfordshire and Essex first</p>
+        <h2>Be one of the first cleaners on Otterly.</h2>
+        <p class="lede">Tell us where you work and what you do. We'll be in touch as Otterly opens near you.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-accent" href="{{mail:Cleaner interest in Otterly}}"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Register as a cleaner</a>
+        <p class="cta-addr">Or email {{contact_email}}</p>
+      </div>
+    </div>
+  </div>
+</section>

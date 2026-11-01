@@ -3,7 +3,7 @@
 const { chromium } = require(process.env.PLAYWRIGHT_PATH || '/home/claude/.npm-global/lib/node_modules/playwright');
 const fs = require('fs'), path = require('path');
 const BASE = process.argv[2] || 'http://localhost:8080/homekeep-site';
-const pages = ['', 'find-a-cleaner/', 'cleaners/', 'cleaners/example-maria/', 'become-a-cleaner/', 'cleaner-app/', 'pricing/', 'about/', 'contact/', 'legal/', 'legal/privacy/', 'legal/delete-account/', '404.html'];
+const pages = ['', 'households/', 'cleaners/', 'companies/', 'web/', 'about/', 'contact/', 'legal/', 'legal/terms-for-households/', 'legal/terms-for-cleaners/', 'legal/privacy/', 'legal/cookies/', 'legal/insurance-and-complaints/', 'legal/modern-slavery/', 'legal/delete-account/', 'find-a-cleaner/', 'become-a-cleaner/'];
 const widths = (process.env.WIDTHS || '390,1280').split(',').map(Number);
 const themes = (process.env.THEMES || 'light,dark').split(',');
 (async () => {
