@@ -197,6 +197,25 @@ def header(page):
     return out.replace("{{header_class}}", "site-header on-band" if page.get("top") == "band" else "site-header")
 
 
+def app_meta():
+    """Safari's own Smart App Banner on iPhone, once the App Store listing exists."""
+    return f'<meta name="apple-itunes-app" content="app-id={site["ios_app_id"]}">' if site.get("ios_app_id") else ""
+
+
+def app_banner():
+    """App-first nudge for phone visitors: points iPhone and Android visitors at their store, dismissible,
+    remembered for 30 days. Renders nothing until a store URL is set in site.json."""
+    ios, android = site.get("app_store_url", ""), site.get("play_store_url", "")
+    if not (ios or android):
+        return ""
+    cfg = json.dumps({"ios": ios, "android": android, "smart": bool(site.get("ios_app_id"))})
+    return (f'<div class="app-banner" id="appBanner" role="region" aria-label="Get the Otterly app" hidden data-apps=\'{cfg}\'>'
+            '<img src="{{base}}/assets/img/apple-touch-icon.png" alt="" width="48" height="48">'
+            '<div class="app-banner-text"><strong>Otterly works best in the app</strong><span>Bookings, visits and earnings in your pocket.</span></div>'
+            '<div class="app-banner-actions"><a class="btn btn-band" id="appBannerGet" href="#">Get the app</a>'
+            '<button type="button" class="app-banner-stay" id="appBannerStay">Continue on the website</button></div></div>')
+
+
 def render(page, content, structured=""):
     path = page["path"]
     canonical = ORIGIN + BASE + "/" + (path + "/" if path else "")
@@ -208,6 +227,7 @@ def render(page, content, structured=""):
     # The hero's phones are the first thing seen: load them straight away, not lazily.
     out = re.sub(r'<div class="hero-phones">.*?</div>', lambda m: m.group(0).replace('loading="lazy"', 'loading="eager" fetchpriority="high"'), out, flags=re.S)
     web = site.get("web_app_url", "")
+    out = fill(out, app_meta=app_meta(), app_banner=app_banner())
     out = fill(out, web_signin=(f'<a class="btn btn-tonal" href="{web}">Sign in on the web</a>' if web else
                                 '<span class="pill-soon">Opens alongside the app</span>'))
     out = fill(out, base=BASE, company_name=NAME, company_line=site["company_line"],

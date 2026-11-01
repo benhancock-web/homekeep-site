@@ -14,6 +14,7 @@
 <meta property="og:url" content="{{canonical}}">
 <meta property="og:site_name" content="Otterly">
 {{robots}}
+{{app_meta}}
 <link rel="icon" href="{{base}}/assets/brand/otterly-mark-small.svg" type="image/svg+xml">
 <link rel="icon" href="{{base}}/assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="{{base}}/assets/img/apple-touch-icon.png">
@@ -33,6 +34,7 @@
 </main>
 {{footer}}
 {{menu}}
+{{app_banner}}
 <script>
 (function () {
   var btn = document.getElementById('menuBtn'), sheet = document.getElementById('menuSheet'), close = document.getElementById('menuClose');
@@ -50,6 +52,23 @@
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
     sheet.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { sheet.hidden = true; document.body.classList.remove('menu-open'); }); });
+  }
+  // App-first: on a phone, point iPhone and Android visitors at their store. "Continue on the website" hides it for 30 days.
+  var ab = document.getElementById('appBanner');
+  if (ab) {
+    var cfg = JSON.parse(ab.getAttribute('data-apps')), ua = navigator.userAgent || '';
+    var isIOS = /iPhone|iPod/.test(ua) || (/iPad/.test(ua)), isAndroid = /Android/.test(ua);
+    var isSafari = isIOS && /Safari/.test(ua) && !/CriOS|FxiOS|EdgiOS/.test(ua);
+    var url = isIOS ? cfg.ios : isAndroid ? cfg.android : '';
+    var until = 0; try { until = +localStorage.getItem('otterly-app-banner') || 0; } catch (e) {}
+    if (url && Date.now() > until && !(isSafari && cfg.smart)) {
+      document.getElementById('appBannerGet').href = url;
+      ab.hidden = false; document.body.classList.add('has-app-banner');
+      document.getElementById('appBannerStay').addEventListener('click', function () {
+        ab.hidden = true; document.body.classList.remove('has-app-banner');
+        try { localStorage.setItem('otterly-app-banner', String(Date.now() + 30 * 864e5)); } catch (e) {}
+      });
+    }
   }
   // Screen galleries: the arrow buttons scroll by one screen; the row itself also scrolls by touch, trackpad and keyboard.
   document.querySelectorAll('[data-gallery]').forEach(function (g) {

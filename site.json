@@ -1,5 +1,5 @@
 {
-  "_comment": "Site-wide settings. base is the path prefix the site is served under: '/homekeep-site' on the GitHub address, '' once a custom domain is pointed at it. company_line is empty until the company is registered. noindex keeps search engines off the site while it is on the GitHub address. web_app_url is empty until the web version of the app is live; then 'Sign in on the web' appears on the Use Otterly on the web page. app_store_url / play_store_url are empty until the listings exist.",
+  "_comment": "Site-wide settings. base is the path prefix the site is served under: '/homekeep-site' on the GitHub address, '' once a custom domain is pointed at it. company_line is empty until the company is registered. noindex keeps search engines off the site while it is on the GitHub address. web_app_url is empty until the web version of the app is live; then 'Sign in on the web' appears on the Use Otterly on the web page. app_store_url / play_store_url are empty until the listings exist. When app_store_url / play_store_url are set, phone visitors on that platform see a 'Get the app' banner they can dismiss (remembered for 30 days); ios_app_id (the number in the App Store link) also turns on Safari's own Smart App Banner on iPhone.",
   "origin": "https://benhancock-web.github.io",
   "base": "/homekeep-site",
   "company_name": "Otterly",
@@ -8,5 +8,6 @@
   "noindex": true,
   "app_store_url": "",
   "play_store_url": "",
-  "web_app_url": ""
+  "web_app_url": "",
+  "ios_app_id": ""
 }

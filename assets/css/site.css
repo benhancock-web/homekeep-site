@@ -328,3 +328,19 @@ p { margin: 0; }
 .visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .card p.over, .aud p.over { font-size: 12.5px; line-height: 16px; color: var(--text-3); }
 .aud.is-moss p.over { color: var(--band-soft); }
+
+/* App-first banner for phone visitors (only rendered once a store link exists) */
+.app-banner { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 12px 14px; align-items: center;
+  margin: 0 12px max(12px, env(safe-area-inset-bottom, 0px)); padding: 16px; border-radius: 24px; background: var(--band); color: var(--band-text); box-shadow: 0 18px 40px -12px rgba(18,25,23,.5); }
+.app-banner img { width: 48px; height: 48px; border-radius: 12px; }
+.app-banner-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.app-banner-text strong { font-family: var(--font-display); font-size: 19px; font-weight: 600; line-height: 1.25; }
+.app-banner-text span { font-size: 14.5px; color: var(--band-soft); }
+.app-banner-actions { grid-column: 1 / -1; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.app-banner-actions .btn { min-height: 48px; flex: 1 1 auto; }
+.app-banner-stay { min-height: 48px; padding: 0 12px; border: 0; background: none; color: var(--band-text); font: 600 15px var(--font-web-body); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+body.has-app-banner { padding-bottom: 180px; }
+@media (min-width: 700px) { .app-banner { left: auto; width: 420px; } }
+.app-banner { box-shadow: 0 18px 40px -12px rgba(18,25,23,.5), inset 0 0 0 1px var(--band-line); }
+.app-banner .btn-band { background: #F4EFE6; color: #244D3F; box-shadow: none; }
+.app-banner .btn-band:hover { background: #FFFCF7; }
