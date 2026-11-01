@@ -151,6 +151,9 @@ p { margin: 0; }
 
 /* Gallery of screens */
 .gallery { position: relative; }
+.gallery-head { margin-top: 40px; display: flex; flex-direction: column; gap: 6px; }
+.gallery-head h3 { margin: 0; }
+.gallery-note { margin-top: 8px; }
 .gallery-row { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 12px var(--gutter-r) 40px var(--gutter); scroll-padding-left: var(--gutter); scrollbar-width: thin; scrollbar-color: var(--hairline) transparent; }
 .gallery-row:focus-visible { outline-offset: -3px; }
 .gallery-row figure { margin: 0; flex: 0 0 clamp(200px, 21vw, 248px); scroll-snap-align: start; display: flex; flex-direction: column; gap: 16px; }
